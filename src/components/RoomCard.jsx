@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bed, Users, ArrowUpRight } from '@phosphor-icons/react';
+import { Bed, Users, ArrowUpRight, WhatsappLogo } from '@phosphor-icons/react';
+import { helpers } from '../data/siteData';
 
 export default function RoomCard({ room, index = 0 }) {
   const img = room.images?.[0];
+  const waHref = helpers.waHref(
+    `Hi Brompton, I'd like to book the ${room.name}.`
+  );
+
   return (
-    <Link
-      to={`/rooms/${room.slug}`}
-      className="block group"
-    >
-      <article className="relative">
+    <article className="group relative">
+      <Link to={`/rooms/${room.slug}`} className="block">
         <div className="relative overflow-hidden bg-ink-100 aspect-[4/5]">
           <img
             src={img}
@@ -51,7 +53,28 @@ export default function RoomCard({ room, index = 0 }) {
             <span>{room.sizeSqm} m²</span>
           </div>
         </div>
-      </article>
-    </Link>
+      </Link>
+
+      {/* CTA row */}
+      <div className="mt-4 flex items-stretch gap-2">
+        <Link
+          to={`/rooms/${room.slug}`}
+          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-ink-800 text-sand-50 hover:bg-mahogany-400 text-[10px] tracking-[0.18em] uppercase transition-colors"
+        >
+          Book
+          <ArrowUpRight size={12} />
+        </Link>
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Enquire about ${room.name} on WhatsApp`}
+          className="inline-flex items-center justify-center w-12 shrink-0 border border-ink-200 text-ink-700 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-colors"
+          style={{}}
+        >
+          <WhatsappLogo size={18} weight="fill" />
+        </a>
+      </div>
+    </article>
   );
 }

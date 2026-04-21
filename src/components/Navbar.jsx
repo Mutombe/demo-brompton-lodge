@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { List, X, WhatsappLogo, Phone } from '@phosphor-icons/react';
+import { List, X, WhatsappLogo, Phone, MagnifyingGlass } from '@phosphor-icons/react';
 import { business, helpers } from '../data/siteData';
 
 const links = [
@@ -13,7 +13,7 @@ const links = [
   { to: '/contact', label: 'Contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onOpenSearch }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const loc = useLocation();
@@ -119,6 +119,17 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <button
+              onClick={onOpenSearch}
+              aria-label="Search"
+              className={`h-10 w-10 flex items-center justify-center transition-colors ${
+                transparent
+                  ? 'text-sand-50 hover:text-mahogany-200'
+                  : 'text-ink-700 hover:text-mahogany-400'
+              }`}
+            >
+              <MagnifyingGlass size={20} />
+            </button>
             <Link
               to="/reservations"
               className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-[11px] tracking-[0.14em] uppercase transition-all duration-300 ${
@@ -183,6 +194,16 @@ export default function Navbar() {
             </button>
           </div>
           <nav className="flex-1 flex flex-col px-6 py-8 gap-0.5">
+            <button
+              onClick={() => {
+                setOpen(false);
+                if (onOpenSearch) setTimeout(onOpenSearch, 250);
+              }}
+              className="flex items-center gap-3 py-3 font-display text-2xl text-ink-800 hover:text-mahogany-400 transition-colors text-left"
+            >
+              <MagnifyingGlass size={22} />
+              Search
+            </button>
             {links.map((l) => (
               <NavLink
                 key={l.to}
