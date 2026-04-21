@@ -25,7 +25,10 @@ export default function Dining() {
           <div className="grid lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-7">
               <p className="text-[11px] tracking-[0.22em] uppercase text-mahogany-400 mb-4">Dining</p>
-              <h1 className="font-display text-ink-800 text-5xl sm:text-6xl lg:text-[76px] leading-[0.98] tracking-tight text-balance">
+              <h1
+                className="font-display text-ink-800 leading-[0.98] tracking-tight text-balance"
+                style={{ fontSize: 'clamp(2.5rem, 6vw, 4.75rem)' }}
+              >
                 {dining.heading}
               </h1>
             </div>

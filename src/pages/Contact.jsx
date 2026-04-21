@@ -63,7 +63,10 @@ Phone:  ${form.phone || 'not provided'}`;
           </nav>
           <div className="max-w-4xl">
             <p className="text-[11px] tracking-[0.22em] uppercase text-mahogany-400 mb-4">Contact</p>
-            <h1 className="font-display text-ink-800 text-5xl sm:text-6xl lg:text-[84px] leading-[0.98] tracking-tight text-balance">
+            <h1
+              className="font-display text-ink-800 leading-[0.98] tracking-tight text-balance"
+              style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5rem)' }}
+            >
               Write, call, or come by.
             </h1>
             <p className="font-serif italic text-xl sm:text-2xl text-ink-600 mt-6 sm:mt-8 max-w-3xl leading-relaxed">
@@ -89,7 +92,7 @@ Phone:  ${form.phone || 'not provided'}`;
                   <button
                     type="button"
                     onClick={() => setChannel('whatsapp')}
-                    className={`inline-flex items-center gap-2 px-5 h-10 text-[11px] tracking-[0.16em] uppercase transition-colors ${
+                    className={`inline-flex items-center gap-2 px-5 h-11 text-[11px] tracking-[0.16em] uppercase transition-colors ${
                       channel === 'whatsapp'
                         ? 'bg-mahogany-400 text-sand-50'
                         : 'bg-transparent border border-ink-200 text-ink-600 hover:border-mahogany-400'
@@ -100,7 +103,7 @@ Phone:  ${form.phone || 'not provided'}`;
                   <button
                     type="button"
                     onClick={() => setChannel('email')}
-                    className={`inline-flex items-center gap-2 px-5 h-10 text-[11px] tracking-[0.16em] uppercase transition-colors ${
+                    className={`inline-flex items-center gap-2 px-5 h-11 text-[11px] tracking-[0.16em] uppercase transition-colors ${
                       channel === 'email'
                         ? 'bg-ink-800 text-sand-50'
                         : 'bg-transparent border border-ink-200 text-ink-600 hover:border-ink-800'
@@ -120,7 +123,7 @@ Phone:  ${form.phone || 'not provided'}`;
                         onChange={onChange('name')}
                         required
                         placeholder="Full name"
-                        className="h-11 px-3 text-sm bg-sand-50 border border-ink-200 outline-none focus:border-mahogany-400 transition-colors"
+                        className="h-11 px-3 text-base sm:text-sm bg-sand-50 border border-ink-200 outline-none focus:border-mahogany-400 transition-colors"
                       />
                     </label>
                     <label className="flex flex-col gap-1.5">
@@ -130,7 +133,7 @@ Phone:  ${form.phone || 'not provided'}`;
                         value={form.phone}
                         onChange={onChange('phone')}
                         placeholder="+263 …"
-                        className="h-11 px-3 text-sm bg-sand-50 border border-ink-200 outline-none focus:border-mahogany-400 transition-colors"
+                        className="h-11 px-3 text-base sm:text-sm bg-sand-50 border border-ink-200 outline-none focus:border-mahogany-400 transition-colors"
                       />
                     </label>
                   </div>
@@ -151,7 +154,7 @@ Phone:  ${form.phone || 'not provided'}`;
                       onChange={onChange('message')}
                       required
                       rows={6}
-                      className="px-3 py-3 text-sm bg-sand-50 border border-ink-200 outline-none focus:border-mahogany-400 transition-colors resize-y"
+                      className="px-3 py-3 text-base sm:text-sm bg-sand-50 border border-ink-200 outline-none focus:border-mahogany-400 transition-colors resize-y"
                     />
                   </label>
                   <button

@@ -76,7 +76,7 @@ Could you confirm availability and quote the total? Thank you.`;
               value={checkIn}
               onChange={(e) => setCheckIn(e.target.value)}
               min={todayIso()}
-              className={`w-full h-11 pl-8 pr-3 text-sm border outline-none transition-colors ${baseInput}`}
+              className={`w-full h-11 pl-8 pr-3 text-base sm:text-sm border outline-none transition-colors ${baseInput}`}
             />
           </div>
         </label>
@@ -100,7 +100,7 @@ Could you confirm availability and quote the total? Thank you.`;
               value={checkOut}
               onChange={(e) => setCheckOut(e.target.value)}
               min={checkIn}
-              className={`w-full h-11 pl-8 pr-3 text-sm border outline-none transition-colors ${baseInput}`}
+              className={`w-full h-11 pl-8 pr-3 text-base sm:text-sm border outline-none transition-colors ${baseInput}`}
             />
           </div>
         </label>
@@ -122,7 +122,7 @@ Could you confirm availability and quote the total? Thank you.`;
             <select
               value={guests}
               onChange={(e) => setGuests(Number(e.target.value))}
-              className={`w-full h-11 pl-8 pr-3 text-sm border outline-none transition-colors appearance-none ${baseInput}`}
+              className={`w-full h-11 pl-8 pr-3 text-base sm:text-sm border outline-none transition-colors appearance-none ${baseInput}`}
             >
               <option value={1}>1 guest</option>
               <option value={2}>2 guests</option>
@@ -149,7 +149,7 @@ Could you confirm availability and quote the total? Thank you.`;
             <select
               value={roomSlug}
               onChange={(e) => setRoomSlug(e.target.value)}
-              className={`w-full h-11 pl-8 pr-3 text-sm border outline-none transition-colors appearance-none ${baseInput}`}
+              className={`w-full h-11 pl-8 pr-3 text-base sm:text-sm border outline-none transition-colors appearance-none ${baseInput}`}
             >
               <option value="any">Any available</option>
               {rooms.map((r) => (

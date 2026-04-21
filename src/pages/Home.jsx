@@ -25,39 +25,47 @@ export default function Home() {
         description="Brompton Guest House is a residential boutique lodge in Mount Pleasant, Harare. Canopy beds, garden breakfasts, and a warm welcome. Reserve direct."
       />
 
-      {/* ============ HERO (full-bleed real photo) ============ */}
-      <section className="relative h-[100svh] min-h-[640px] max-h-[900px] w-full overflow-hidden">
+      {/* ============ HERO (full-bleed real photo — fits in one viewport) ============ */}
+      <section className="relative min-h-[calc(100svh-5rem)] w-full overflow-hidden flex items-center">
         <img
           src={hero.image}
           alt={hero.imageAlt}
           onError={(e) => (e.currentTarget.style.display = 'none')}
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         {/* A gentler scrim — photo is the voice */}
         <div className="absolute inset-0 bg-ink-900/55" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink-900/40 via-transparent to-ink-900/70" />
 
-        <div className="relative h-full max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10 flex flex-col justify-end pb-14 sm:pb-16 pt-28">
+        <div className="relative w-full max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10 pt-28 pb-20 sm:pb-24">
           <div className="max-w-3xl">
-            <p className="font-serif italic text-sand-200 text-base sm:text-lg tracking-wide mb-4 sm:mb-5 animate-fade-up">
+            <p className="font-serif italic text-sand-200 text-base sm:text-lg tracking-wide mb-3 sm:mb-4 animate-fade-up">
               {hero.eyebrow}
             </p>
-            <h1 className="font-display text-sand-50 text-[44px] sm:text-6xl lg:text-[80px] leading-[1.02] tracking-tight animate-fade-up" style={{ animationDelay: '120ms' }}>
+            <h1
+              className="font-display text-sand-50 leading-[1.02] tracking-tight animate-fade-up"
+              style={{ animationDelay: '120ms', fontSize: 'clamp(2.25rem, 6.8vw, 5rem)' }}
+            >
               {hero.headlineTop}
               <br />
               {hero.headlineBottom}
             </h1>
-            <p className="font-serif italic text-mahogany-200 mt-4 sm:mt-5 text-xl sm:text-2xl animate-fade-up" style={{ animationDelay: '240ms' }}>
+            <p
+              className="font-serif italic text-mahogany-200 mt-3 sm:mt-4 animate-fade-up"
+              style={{ animationDelay: '240ms', fontSize: 'clamp(1.05rem, 1.8vw, 1.5rem)' }}
+            >
               {hero.italic}
             </p>
-            <p className="mt-7 sm:mt-8 text-sand-100/90 text-base sm:text-lg leading-relaxed max-w-2xl text-pretty animate-fade-up" style={{ animationDelay: '360ms' }}>
+            <p className="mt-4 sm:mt-6 text-sand-100/90 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl text-pretty animate-fade-up" style={{ animationDelay: '360ms' }}>
               {hero.sub}
             </p>
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 animate-fade-up" style={{ animationDelay: '480ms' }}>
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 animate-fade-up" style={{ animationDelay: '480ms' }}>
               <Link
                 to={hero.ctaPrimary.to}
-                className="inline-flex items-center justify-center gap-2 bg-sand-50 text-ink-800 px-8 py-4 text-[11px] tracking-[0.18em] uppercase hover:bg-mahogany-400 hover:text-sand-50 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-sand-50 text-ink-800 px-8 h-12 text-[11px] tracking-[0.18em] uppercase hover:bg-mahogany-400 hover:text-sand-50 transition-colors"
               >
                 {hero.ctaPrimary.label}
                 <ArrowRight size={14} />
@@ -66,7 +74,7 @@ export default function Home() {
                 href={hero.ctaSecondary.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border border-sand-50 text-sand-50 px-8 py-4 text-[11px] tracking-[0.18em] uppercase hover:bg-sand-50 hover:text-ink-800 transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-sand-50 text-sand-50 px-8 h-12 text-[11px] tracking-[0.18em] uppercase hover:bg-sand-50 hover:text-ink-800 transition-colors"
               >
                 <WhatsappLogo size={14} weight="fill" />
                 {hero.ctaSecondary.label}
@@ -178,6 +186,7 @@ export default function Home() {
                   onError={(e) => (e.currentTarget.style.display = 'none')}
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <p className="mt-3 font-serif italic text-sm text-ink-400">
@@ -235,6 +244,7 @@ export default function Home() {
                   onError={(e) => (e.currentTarget.style.display = 'none')}
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </SectionReveal>
@@ -348,6 +358,7 @@ export default function Home() {
           onError={(e) => (e.currentTarget.style.display = 'none')}
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-ink-900/70" />
         <div className="relative max-w-3xl mx-auto px-5 sm:px-6 lg:px-10 py-24 sm:py-32 text-center">

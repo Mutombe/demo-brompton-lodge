@@ -41,7 +41,10 @@ export default function Gallery() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
             <div className="max-w-3xl">
               <p className="text-[11px] tracking-[0.22em] uppercase text-mahogany-400 mb-4">Gallery</p>
-              <h1 className="font-display text-ink-800 text-5xl sm:text-6xl lg:text-[76px] leading-[0.98] tracking-tight text-balance">
+              <h1
+                className="font-display text-ink-800 leading-[0.98] tracking-tight text-balance"
+                style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
+              >
                 A look around the house.
               </h1>
               <p className="font-serif italic text-lg text-ink-600 mt-6 leading-relaxed text-pretty">

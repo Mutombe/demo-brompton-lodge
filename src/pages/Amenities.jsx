@@ -25,7 +25,10 @@ export default function Amenities() {
           </nav>
           <div className="max-w-4xl">
             <p className="text-[11px] tracking-[0.22em] uppercase text-mahogany-400 mb-4">What's in the house</p>
-            <h1 className="font-display text-ink-800 text-5xl sm:text-6xl lg:text-[84px] leading-[0.98] tracking-tight text-balance">
+            <h1
+              className="font-display text-ink-800 leading-[0.98] tracking-tight text-balance"
+              style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5rem)' }}
+            >
               The small things, done properly.
             </h1>
             <p className="font-serif italic text-xl sm:text-2xl text-ink-600 mt-6 sm:mt-8 max-w-3xl leading-relaxed text-pretty">
